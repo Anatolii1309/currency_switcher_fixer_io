@@ -1,0 +1,7 @@
+currency_switcher_fixer_io.currency:
+  path: '/admin/config/services/currency_switcher_fixer_io/settings'
+  defaults:
+    _controller: '\Drupal\currency_switcher_fixer_io\Controller\CurrencySwitcherFixerIoController::resultList'
+    _title: 'Currency switcher fixer io Settings'
+  requirements:
+    _permission: 'currency_switcher_fixer_io configuration'

@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Current foreign exchanges rates published by the European Central Bank.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function currency_switcher_fixer_io_help($route_name, RouteMatchInterface $route_match) {
+    switch ($route_name) {
+        case 'help.page.currency_switcher_fixer_io':
+            $output = '';
+            $output .= '<h3>' . t('About') . '</h3>';
+            $output .= '<p>' . t('<p>A simple module provides the Foreign exchange rates and currency conversion API <a>Fixer.io</a></p>
+      <p>You can select the necessary currencies from the list.</p>');
+            return $output;
+    }
+}

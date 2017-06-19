@@ -1,0 +1,5 @@
+currency_switcher_fixer_io.currency:
+  title: 'Currency switcher fixer io'
+  descrption: 'Configure the Currency switcher fixer io settings.'
+  parent: system.admin_config_services
+  route_name: currency_switcher_fixer_io.currency

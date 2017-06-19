@@ -1,0 +1,4 @@
+services:
+  currency_switcher_fixer_io.controller:
+    class: Drupal\currency_switcher_fixer_io\CurrencySwitcherFixerIo
+    arguments: ['@http_client', '@config.factory']

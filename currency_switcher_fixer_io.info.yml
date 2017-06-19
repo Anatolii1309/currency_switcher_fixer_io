@@ -1,0 +1,7 @@
+name: Currency Switcher Fixer Io
+type: module
+description: 'Custom Drupal 8 module to display a currency switcher that gets its calculation rates from http://fixer.io/'
+package: Other
+version: '8.x-1.0'
+core: 8.x
+project: 'currency_switcher_fixer_io'
