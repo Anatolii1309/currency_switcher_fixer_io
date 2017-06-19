@@ -19,3 +19,15 @@ function currency_switcher_fixer_io_help($route_name, RouteMatchInterface $route
             return $output;
     }
 }
+
+/**
+ * Implements hook_cron.
+ */
+function currency_switcher_fixer_io_cron() {
+    $service = \Drupal::service('currency_switcher_fixer_io.controller');
+    $config_setting = \Drupal::service('config.factory')->getEditable('currency_switcher_fixer_io.settings')->get('settings');
+    $config_setting = implode(",", $config_setting);
+    $base = $service->currencyCheck($config_setting);
+    $config = \Drupal::service('config.factory')->getEditable('currency_switcher_fixer_io.currency');
+    $config->set('currency', $base)->save();
+}
