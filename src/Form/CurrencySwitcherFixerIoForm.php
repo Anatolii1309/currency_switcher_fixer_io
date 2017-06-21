@@ -76,7 +76,7 @@ class CurrencySwitcherFixerIoForm extends ConfigFormBase {
             '#type' => 'select',
             '#multiple' => TRUE,
             '#size' => 10,
-            '#title' => 'Currency',
+            '#title' => t('Currency'),
             '#options' =>
                 array(
                     'AUD' => t('AUD'),
@@ -121,20 +121,6 @@ class CurrencySwitcherFixerIoForm extends ConfigFormBase {
      * {@inheritdoc}
      */
     public function validateForm(array &$form, FormStateInterface $form_state) {
-        $form_value = $form_state->getValue('settings');
-        foreach ($form_value as $values) {
-            $currency_value [] = $values;
-        }
-        $options = implode(",", $currency_value);
-        $output = $this->currencySwitcherFixerIo->currencyCheck($options);
-        if (!empty($output)) {
-            if (isset($output['base']) && !empty($output['base'])) {
-                $base = $output;
-                $this->config('currency_switcher_fixer_io.currency')
-                    ->set('currency', $base)
-                    ->save();
-            }
-         }
     }
 
     /**
@@ -144,6 +130,13 @@ class CurrencySwitcherFixerIoForm extends ConfigFormBase {
         $form_value = $form_state->getValue('settings');
         foreach ($form_value as $values) {
             $currency_value [] = $values;
+        }
+        $options = implode(",", $currency_value);
+        $output = $this->currencySwitcherFixerIo->currencyCheck($options);
+        if (!empty($output)) {
+            $this->config('currency_switcher_fixer_io.currency')
+                ->set('currency', $output)
+                ->save();
         }
         $this->config('currency_switcher_fixer_io.settings')
             ->set('settings', $currency_value)

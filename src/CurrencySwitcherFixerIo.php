@@ -49,16 +49,6 @@ class CurrencySwitcherFixerIo implements CurrencySwitcherFixerIoInterface {
   }
 
   /**
-   * {@inheritdoc}
-   */
-  public static function create(ContainerInterface $container) {
-    return new static(
-      $container->get('http_client'),
-      $container->get('config.factory')
-    );
-  }
-
-  /**
    * Get currency data.
    */
   public function currencyCheck($options = NULL) {

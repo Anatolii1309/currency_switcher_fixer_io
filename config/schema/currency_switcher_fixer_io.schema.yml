@@ -7,3 +7,10 @@ currency_switcher_fixer_io.settings:
     settings:
       type: mapping
       label: 'Currency switcher fixer io settings'
+currency_switcher_fixer_io.currency:
+  type: config_object
+  label: 'Currency Array fixer io'
+  mapping:
+    currency:
+      type: mapping
+      label: 'Currency Array fixer io'
